@@ -912,6 +912,7 @@ GameObject:
   - component: {fileID: 1046379072}
   - component: {fileID: 1046379071}
   - component: {fileID: 1046379070}
+  - component: {fileID: 1046379074}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -1003,11 +1004,24 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 13.02}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1046379074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046379068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205179a7bac529947a7b0ffb0ecc00c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Box
 --- !u!1 &1188726008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed2a36b2df67844cadc73975317e13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 963194228}
+  cam: {fileID: 689385182}
   interactDistance: 3
   interactLayer:
     serializedVersion: 2
