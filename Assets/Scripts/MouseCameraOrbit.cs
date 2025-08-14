@@ -76,9 +76,9 @@ public class MouseCameraOrbit : MonoBehaviour
 
         transform.position = target.position;
 
-        Vector3 desired = transform.position - transform.forward * distance + Vector3.up * 0.0f;
-        cam.position = desired;
-        cam.LookAt(target.position + Vector3.up * 1.2f);
+        //Vector3 desired = transform.position - transform.forward * distance + Vector3.up * 0.0f;
+        //cam.position = desired;
+        //cam.LookAt(target.position + Vector3.up * 1.2f);
     }
 
     void LockCursor(bool locked)
