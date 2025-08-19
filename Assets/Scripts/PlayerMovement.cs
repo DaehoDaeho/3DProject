@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
 
     public Animator animator;
+    public BoxCollider hitBox;
 
     private void Awake()
     {
@@ -71,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if(moveDir.sqrMagnitude > 0.001f)
         {
             Quaternion targetRot = Quaternion.LookRotation(moveDir, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * 10.0f);
         }
 
         bool move = false;
@@ -81,5 +82,21 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animator.SetBool("Move", move);
+    }
+
+    void OnAttackStart()
+    {
+        if (hitBox != null)
+        {
+            hitBox.enabled = true;
+        }
+    }
+
+    void OnAttackEnd()
+    {
+        if (hitBox != null)
+        {
+            hitBox.enabled = false;
+        }
     }
 }
