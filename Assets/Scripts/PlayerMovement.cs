@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;   // 현재 속도.
     private bool isGrounded;
 
+    public Animator animator;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -56,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
         if(isGrounded == true && Input.GetKeyDown(KeyCode.Space) == true)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
+            animator.SetTrigger("Jump");
+        }
+        else if(isGrounded == true && Input.GetKeyDown(KeyCode.F) == true)
+        {
+            animator.SetTrigger("Attack");
         }
 
         velocity.y += gravity * Time.deltaTime;
@@ -66,5 +73,13 @@ public class PlayerMovement : MonoBehaviour
             Quaternion targetRot = Quaternion.LookRotation(moveDir, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime);
         }
+
+        bool move = false;
+        if(h != 0.0f || v != 0.0f)
+        {
+            move = true;            
+        }
+
+        animator.SetBool("Move", move);
     }
 }
