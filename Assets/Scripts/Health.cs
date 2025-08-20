@@ -23,10 +23,11 @@ public class Health : MonoBehaviour, IDamageable
         hp = Mathf.Max(0, hp - amount);
         invEnd = Time.time + invincibleTime;
 
-        if (hp == 0)
+        if (hp <= 0)
         {
             onDeath?.Invoke();
             // TODO: 사망 애니메이션/리스폰/비활성 등
+            Destroy(gameObject, 1.0f);
         }
     }
 }

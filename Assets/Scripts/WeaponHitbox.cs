@@ -37,6 +37,12 @@ public class WeaponHitbox : MonoBehaviour
         {
             Vector3 hitPoint = other.ClosestPoint(transform.position);
             dmg.TakeDamage(damage, hitPoint);
+
+            DamageTextSpawner spawner = FindObjectOfType<DamageTextSpawner>();
+            if(spawner != null)
+            {
+                spawner.Spawn(damage, hitPoint);
+            }
         }
     }
 }
