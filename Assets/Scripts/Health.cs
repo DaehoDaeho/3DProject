@@ -23,6 +23,12 @@ public class Health : MonoBehaviour, IDamageable
         hp = Mathf.Max(0, hp - amount);
         invEnd = Time.time + invincibleTime;
 
+        DamageFlash flash = GetComponent<DamageFlash>();
+        if(flash != null)
+        {
+            flash.Flash();
+        }
+
         if (hp <= 0)
         {
             onDeath?.Invoke();

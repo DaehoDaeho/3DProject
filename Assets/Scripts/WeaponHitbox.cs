@@ -12,6 +12,11 @@ public class WeaponHitbox : MonoBehaviour
     Collider col;
     bool active; // 현재 활성 상태
 
+    public ImpactVfxSpawner impactVfx;
+    public CameraShake cameraShake;
+    public Hitstop hitStop;
+    public SfxPlayer sfxPlayer;
+
     void Awake()
     {
         col = GetComponent<Collider>();
@@ -38,10 +43,31 @@ public class WeaponHitbox : MonoBehaviour
             Vector3 hitPoint = other.ClosestPoint(transform.position);
             dmg.TakeDamage(damage, hitPoint);
 
+            if (impactVfx != null)
+            {
+                Vector3 normal = (transform.position - hitPoint.normalized);
+                impactVfx.Spawn(hitPoint, normal);
+            }
+
             DamageTextSpawner spawner = FindObjectOfType<DamageTextSpawner>();
             if(spawner != null)
             {
                 spawner.Spawn(damage, hitPoint);
+            }
+
+            if(cameraShake != null)
+            {
+                cameraShake.Shake(0.15f, 0.5f);
+            }
+
+            if(hitStop != null)
+            {
+                hitStop.Stop(0.1f, 0.1f);
+            }
+
+            if(sfxPlayer != null)
+            {
+                sfxPlayer.Play(0);
             }
         }
     }
