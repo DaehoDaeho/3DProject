@@ -14,11 +14,29 @@ public class Health : MonoBehaviour, IDamageable
     [HideInInspector] public int hp;
     float invEnd;
 
+    public bool isInvincible = false;
+
     void Awake() { hp = maxHP; }
 
     public void TakeDamage(int amount, Vector3 hitPoint)
     {
         Debug.Log("Apply Damage");
+
+        if (hp <= 0)
+        {
+            return;
+        }
+
+        if (Time.time < invincibleTime)
+        {
+            return;
+        }
+
+        if (isInvincible == true)
+        {
+            return; // ← i-프레임 중이면 무시
+        }
+
         if (Time.time < invEnd) return; // 무적 시간
         hp = Mathf.Max(0, hp - amount);
         invEnd = Time.time + invincibleTime;
