@@ -67,7 +67,10 @@ public class MiniBossAI : MonoBehaviour
         lastAttackTime = Time.time;
 
         // 공격 애니메이션 트리거
-        anim.SetTrigger(tAttack);
+        if(anim != null)
+        {
+            anim.SetTrigger(tAttack);
+        }
 
         // 윈드업 대기(플레이어가 피할 수 있는 시간)
         yield return new WaitForSeconds(windupTime);

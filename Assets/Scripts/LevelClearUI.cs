@@ -17,6 +17,6 @@ public class LevelClearUI : MonoBehaviour
     public void Show()
     {
         if (panel != null) panel.SetActive(true);
-        if (text != null) text.text = "STAGE CLEAR";
+        if (text != null) text.text = "Welcome To Hell";
     }
 }

@@ -164,13 +164,15 @@ namespace TravisGameAssets
 		public void ToggleSlowMotion()
 		{
 			slowMotion = !slowMotion;
-			if(slowMotion)
+			if (slowMotion)
 			{
 				Time.timeScale = 0.5f;
-			}else{
+			}
+			else
+			{
 				Time.timeScale = 1.0f;
 			}
-		
+
 			var newColor = slowMotionIcon.color;
 			newColor.a = slowMotion ? 1f : 0.33f;
 			slowMotionIcon.color = newColor;

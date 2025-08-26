@@ -9,7 +9,7 @@ public class PlayerComboController : MonoBehaviour
 {
     [Header("Animator 참조/트리거명")]
     public Animator anim;
-    public string tAttack1 = "Attack1";
+    public string tAttack1 = "Attack";
     public string tAttack2 = "Attack2";
     public string tAttack3 = "Attack3";
 

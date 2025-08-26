@@ -62,7 +62,7 @@ public class WeaponHitbox : MonoBehaviour
 
             if(hitStop != null)
             {
-                hitStop.Stop(0.1f, 0.1f);
+                //hitStop.Stop(0.1f, 0.1f);
             }
 
             if(sfxPlayer != null)
